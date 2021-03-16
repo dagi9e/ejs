@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <%-include('../partials/header.ejs')%>
+</head>
+
+<body>
+    <h1>This are the user information</h1>
+    <ul>
+        <% for(let el of d) {%>
+            <%if(el.name===undefined){%>
+                <% let error='bad data'%>
+                    <li style="color:rgb(255, 0, 119)">
+                        <%=error%>
+                    </li>
+
+                    <%}else{%>
+                        <li>
+                            <%=el.name %>
+                        </li>
+                        <!-- <li> -->
+                        <%if(el.age===undefined){%>
+                            <%let age = "age is missing"%>
+                                <li style="color:red">
+                                    <%= age %>
+                                </li>
+
+                                <% }else{ %>
+                                    <li>
+                                        <%=el.age %>
+                                    </li>
+
+                                    <% }%>
+
+                                        <!-- </li> -->
+                                        <ul>
+                                            <%if (el.hobbies===undefined){%>
+                                                <% let h = 'hobbies are missing'%>
+                                                    <li style="color:red">
+                                                        <%=h%>
+                                                    </li>
+
+                                                    <%   }else{    %>
+                                                        <% for (let el2 of el.hobbies) {%>
+                                                            <li>
+                                                                <%=el2%>
+                                                            </li>
+                                                            <%}}%>
+
+
+                                        </ul>
+                                        <br>
+
+                                        <% }} %>
+
+    </ul>
+
+
+</body>
+
+</html>
